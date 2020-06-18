@@ -64,7 +64,7 @@ app.delete("/repositories/:id", (request, response) => {
     const repositorieIndex = repositories.findIndex(repositorie => repositorie.id == id);
 
     if (repositorieIndex < 0){
-        return response.status(400).json({error: 'Project not found.'});
+        return response.status(400).json({error: 'repositorie not found.'});
     }
 
     repositories.splice(repositorieIndex, 1);
@@ -79,7 +79,7 @@ app.post("/repositories/:id/like", (request, response) => {
    const repositorieLiked = repositories.findIndex(repositorie => repositorie.id.includes(id));
 
    if (repositorieLiked <0){
-       return response.status(400).json({error: 'Project not found.'});
+       return response.status(400).json({error: 'repositorie not found.'});
    }
 
 
