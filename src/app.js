@@ -9,6 +9,7 @@ app.use(express.json());
 app.use(cors());
 
 const repositories = [];
+const likes = [];
 
 app.get("/repositories", (request, response) => {
   // TODO
@@ -76,30 +77,20 @@ app.delete("/repositories/:id", (request, response) => {
 
 app.post("/repositories/:id/like", (request, response) => {
   // TODO
-    const { id } = request.params;
-   const { title, url, techs, likes } = request.body;
+  const { id } = request.params;
 
-   const repositorieLiked = repositories.find(repositorie => repositorie.id === id);
+   const repositorieLiked = repositories.findIndex(repositorie => repositorie.id.includes(id));
 
-   if (!repositorieLiked){
+   if (repositorieLiked <0){
        return response.status(400).json({error: 'Project not found.'});
    }
 
 
-       
-    const repositorie = {
-      id,
-      title,
-      url,
-      techs,
-      likes,
-  };
 
-  repositorieLiked.likes ++;
+  repositories[repositorieLiked].likes++
 
-   repositories[repositorieLiked] = repositorie;
 
-  return response.json(repositorieLiked);
+  return response.json(repositories[repositorieLiked]);
 });
 
 module.exports = app;
