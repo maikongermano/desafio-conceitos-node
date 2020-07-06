@@ -1,4 +1,4 @@
-# Banco de dados e upload de arquivos no Node.js
+# Primeiro projeto Node.js
 Este repositório é referente ao desafio 'Primeiro projeto Node.js' do Bootcamp GoStack 12.0, da Rocketseat 🚀.
 
 # Proposta
